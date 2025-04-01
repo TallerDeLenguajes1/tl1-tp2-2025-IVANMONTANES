@@ -28,12 +28,16 @@ struct compu {
 compu retornarComputadora();
 //funcion para mostrar la computadora//
 void mostrarCompu(compu computadora);
+//funcion para cargar las computadoras//
+void cargarComputadoras(compu computadoras[]);
 
 int main(){
     srand(time(NULL));
-    //arreglo para guardar las 5pc//
-    compu compus[CANTIDADCOMPUTADORAS];
-    mostrarCompu(retornarComputadora());
+    //creamos un arreglo para las 5 computadoras//
+    compu computadoras[5];
+    //llamamos a la funcion para cargar las computadoras//
+    cargarComputadoras(computadoras);
+
 }
 
 compu retornarComputadora()
@@ -61,4 +65,13 @@ void mostrarCompu(compu computadora){
     printf("anio: %d\n",computadora.anio);
     printf("cantidad de nucleos: %d\n",computadora.cantidad_nucleos);
     printf("Tipo CPU: %s\n",computadora.tipo_cpu);
+}
+
+
+
+void cargarComputadoras(compu computadoras[])
+{
+    for(int i = 0; i < 5; i++){
+        computadoras[i] = retornarComputadora();
+    }
 }
