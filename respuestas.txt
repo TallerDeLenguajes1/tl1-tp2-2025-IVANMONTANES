@@ -1,0 +1,5 @@
+¿Puede ver el archivo tp2_1_2.c? ¿Por qué?
+    no se puede ver el archivo tp2_1_2.c pues este mismo fue creado en la rama Opcion_2 por lo tanto no lo podremos ver desde la rama main
+
+En VSCode vuelva al “Source Control” vea los cambios, ¿Qué nota?
+    luego de hacer el merge los cosas que hicimos en la rama Opcion_2 se combinan con las cosas de la rama main en la rama main, por lo tanto ahora tenemos el archivo tp2_1_1.c en la rama main con todos sus cambios
