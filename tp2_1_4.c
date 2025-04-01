@@ -34,6 +34,8 @@ void listarPCs(compu computadoras[], int cantidadComputadoras);
 void cargarComputadoras(compu computadoras[]);
 //funcion para mostrar la computadora mas vieja//
 void mostrarMasVieja(compu computadoras[], int cantidadComputadoras);
+//funcion para mostrar la computadora mas veloz//
+void mostrarMasVeloz(compu computadoras[], int cantidadComputadoras);
 
 int main(){
     srand(time(NULL));
@@ -45,6 +47,8 @@ int main(){
     listarPCs(computadoras,CANTIDADCOMPUTADORAS);
     //llamamos a la funcion para mostrar la computadora mas vieja//
     mostrarMasVieja(computadoras,CANTIDADCOMPUTADORAS);
+    //llamamos a la funcion para mostrar la computadora mas veloz//
+    mostrarMasVeloz(computadoras,CANTIDADCOMPUTADORAS);
 
 }
 
@@ -104,5 +108,21 @@ void mostrarMasVieja(compu computadoras[], int cantidadComputadoras)
         }
     }
     printf("----------COMPUTADORA MAS VIEJA----------\n");
+    mostrarComputadora(computadoras[computadoraIndice]);
+}
+
+void mostrarMasVeloz(compu computadoras[], int cantidadComputadoras)
+{
+    //variable para guardar el anio mas viejo//
+    int masVeloz = 0;
+    //variable para guardar el indice de la computadora//
+    int computadoraIndice;
+    for(int i = 0; i < cantidadComputadoras; i++){
+        if(computadoras[i].velocidad > masVeloz){
+            masVeloz = computadoras[i].velocidad;
+            computadoraIndice = i;
+        }
+    }
+    printf("----------COMPUTADORA MAS VELOZ----------\n");
     mostrarComputadora(computadoras[computadoraIndice]);
 }
