@@ -32,7 +32,8 @@ void mostrarComputadora(compu computadora);
 void listarPCs(compu computadoras[], int cantidadComputadoras);
 //funcion para cargar las computadoras//
 void cargarComputadoras(compu computadoras[]);
-
+//funcion para mostrar la computadora mas vieja//
+void mostrarMasVieja(compu computadoras[], int cantidadComputadoras);
 
 int main(){
     srand(time(NULL));
@@ -42,6 +43,8 @@ int main(){
     cargarComputadoras(computadoras);
     //llamamos a la funcion para listar las computadoras//
     listarPCs(computadoras,CANTIDADCOMPUTADORAS);
+    //llamamos a la funcion para mostrar la computadora mas vieja//
+    mostrarMasVieja(computadoras,CANTIDADCOMPUTADORAS);
 
 }
 
@@ -86,4 +89,20 @@ void cargarComputadoras(compu computadoras[])
     for(int i = 0; i < 5; i++){
         computadoras[i] = retornarComputadora();
     }
+}
+
+void mostrarMasVieja(compu computadoras[], int cantidadComputadoras)
+{
+    //variable para guardar el anio mas viejo//
+    int masViejo = 10000;
+    //variable para guardar el indice de la computadora//
+    int computadoraIndice;
+    for(int i = 0; i < cantidadComputadoras; i++){
+        if(computadoras[i].anio < masViejo){
+            masViejo = computadoras[i].anio;
+            computadoraIndice = i;
+        }
+    }
+    printf("----------COMPUTADORA MAS VIEJA----------\n");
+    mostrarComputadora(computadoras[computadoraIndice]);
 }
