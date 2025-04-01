@@ -27,16 +27,18 @@ struct compu {
 //funcion para generar y retornar una computadora//
 compu retornarComputadora();
 //funcion para mostrar la computadora//
-void mostrarCompu(compu computadora);
+void listarPCs(compu computadoras[], int cantidadComputadoras);
 //funcion para cargar las computadoras//
 void cargarComputadoras(compu computadoras[]);
 
 int main(){
     srand(time(NULL));
     //creamos un arreglo para las 5 computadoras//
-    compu computadoras[5];
+    compu computadoras[CANTIDADCOMPUTADORAS];
     //llamamos a la funcion para cargar las computadoras//
     cargarComputadoras(computadoras);
+    //llamamos a la funcion para listar las computadoras//
+    listarPCs(computadoras,CANTIDADCOMPUTADORAS);
 
 }
 
@@ -58,13 +60,15 @@ compu retornarComputadora()
     return computadora;
 }
 
-void mostrarCompu(compu computadora){
-    //mostramos las componentes de la computadora//
-    printf("--------COMPUTADORA----------\n");
-    printf("velocidad: %d\n",computadora.velocidad);
-    printf("anio: %d\n",computadora.anio);
-    printf("cantidad de nucleos: %d\n",computadora.cantidad_nucleos);
-    printf("Tipo CPU: %s\n",computadora.tipo_cpu);
+void listarPCs(compu computadoras[], int cantidadComputadoras){
+    //mostramos todas las pc//
+    for(int i = 0; i < cantidadComputadoras; i++){
+        printf("----------COMPUTADORA %d----------\n",(i+1));
+        printf("velocidad: %d GHz\n",computadoras[i].velocidad);
+        printf("anio: %d\n",computadoras[i].anio);
+        printf("cantidad de nucleos: %d\n",computadoras[i].cantidad_nucleos);
+        printf("Tipo de CPU: %s\n",computadoras[i].tipo_cpu);
+    }
 }
 
 
